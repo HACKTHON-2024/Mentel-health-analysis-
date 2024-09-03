@@ -31,7 +31,7 @@ html {
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    max-width: 1100px;
+    max-width: 1000px;
     margin: 30px auto;
     transition: transform 0.5s ease, opacity 0.5s ease;
 }
@@ -83,6 +83,7 @@ h2 {
     font-weight: 600;
     font-size: 24px;
     margin-bottom: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Paragraphs */
@@ -94,6 +95,8 @@ p {
 }
 
 /* Input Box */
+
+
 .input-box {
     position: relative;
     display: inline-block;
@@ -112,23 +115,45 @@ input[type="text"] {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
+.input:focus,
+input:hover {
+    outline: none;
+    border-color: rgba(129, 140, 248);
+    background-color: #fff;
+    box-shadow: 0 0 0 5px rgb(129 140 248 / 30%);
+}
+
+
 /* Button Styling */
 button {
-    margin-top: 25px;
-    padding: 12px 25px;
-    font-size: 18px;
-    color: #fff;
-    background-color: #3498db;
-    border: none;
-    border-radius: 8px;
+    padding: 17px 40px;
+    border-radius: 50px;
     cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border: 0;
+    background-color: #dfc7ff;
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: all 0.5s ease;
 }
 
 button:hover {
-    background-color: #2980b9;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    letter-spacing: 3px;
+    background-color: hsl(261deg 80% 48%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
 }
+
+button:active {
+    letter-spacing: 3px;
+    background-color: hsl(261deg 80% 48%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+    transform: translateY(10px);
+    transition: 100ms;
+}
+
 
 /* Result Section */
 .result {
