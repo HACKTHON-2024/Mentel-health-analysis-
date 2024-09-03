@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmotiQuest Sentiment Analysis</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Video Background -->
+    <video class="video-bg" autoplay loop muted>
+        <source src="./Video1.mp4" type="video/mp4">
+    </video>
+
+    <div class="container">
+        <div id="logo">EmotiQuest</div>
+        <h2>Discover the Hidden Emotions Behind Your Words</h2><br>
+        <p>Our sentiment analysis tool helps you understand the emotional tone of social media posts. Simply enter text,
+            and our advanced model will analyze and categorize it into neutral, positive, or negative sentiments.</p>
+        <br>
+        <div class="input-box">
+            <input type="text" id="userInput" placeholder="Enter your text here">
+        </div><br>
+
+        <button onclick="analyzeSentiment()">Analyze</button>
+        <div class="result" id="result">
+            <p>Analysis Result: <span id="sentiment"></span></p>
+        </div>
+    </div>
+
+    <!-- Container2 with the pie chart comes after the input and button -->
+    <div class="container2">
+        <div id="container"></div>
+    </div>
+
+    <!-- Container3 -->
+   <!-- <div class="container3">
+        <div id="analysis-description">
+            <h3>Analysis Summary</h3>
+            <p id="positive-posts"></p>
+            <p id="neutral-posts"></p>
+            <p id="negative-posts"></p>
+        </div>
+    </div>-->
+
+    <script src="javsc.js">
+
+    </script>
+</body>
+
+</html>
