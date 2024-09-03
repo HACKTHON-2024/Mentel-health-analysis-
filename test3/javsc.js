@@ -119,17 +119,17 @@ async function analyzeSentiment() {
     const resultDiv = document.getElementById('result');
     const sentimentSpan = document.getElementById('sentiment');
     const container2 = document.querySelector('.container2');
-   // const container3 = document.querySelector('.container3');
+    // const container3 = document.querySelector('.container3');
 
     // Hide container2 and container3 if there's no input
     container2.classList.remove('visible');
-   // container3.classList.remove('visible');
+    // container3.classList.remove('visible');
     if (userInput.trim() === "") {
         sentimentSpan.textContent = "Please enter some text.";
     } else {
         try {
             // Send a POST request to your Django API with the user's input
-            const response = await fetch('http://localhost:8000/api/predict/', {
+            const response = await fetch('http://172.16.73.157:8000/api/predict/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -140,7 +140,7 @@ async function analyzeSentiment() {
             if (response.ok) {
                 const data = await response.json();
                 // Assuming the API returns an object with a 'sentiment' key
-                
+
                 sentimentSpan.textContent = data.prediction;
                 const chartData = [
                     { name: 'Negative', y: data.negative },
