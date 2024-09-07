@@ -106,24 +106,12 @@ function createChart(data) {
     });
 }
 
-
-// function populateAnalysisSummary(positiveCount, neutralCount, negativeCount) {
-//     document.getElementById('positive-posts').textContent = `Positive Posts: ${positiveCount} posts showed a positive sentiment, reflecting optimism and joy.`;
-//     document.getElementById('neutral-posts').textContent = `Neutral Posts: ${neutralCount} posts were neutral, indicating a balanced or objective tone.`;
-//     document.getElementById('negative-posts').textContent = `Negative Posts: ${negativeCount} posts showed negative sentiment, which might reflect concerns or dissatisfaction.`;
-// }
-
-
 async function analyzeSentiment() {
     const userInput = document.getElementById('userInput').value;
     const resultDiv = document.getElementById('result');
     const sentimentSpan = document.getElementById('sentiment');
     const container2 = document.querySelector('.container2');
-    // const container3 = document.querySelector('.container3');
-
-    // Hide container2 and container3 if there's no input
     container2.classList.remove('visible');
-    // container3.classList.remove('visible');
     if (userInput.trim() === "") {
         sentimentSpan.textContent = "Please enter some text.";
     } else {
