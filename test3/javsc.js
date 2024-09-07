@@ -117,7 +117,7 @@ async function analyzeSentiment() {
     } else {
         try {
             // Send a POST request to your Django API with the user's input
-            const response = await fetch('http://172.16.73.157:8000/api/predict/', {
+            const response = await fetch('http://localhost:8000/api/predict/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
