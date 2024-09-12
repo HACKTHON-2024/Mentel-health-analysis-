@@ -111,29 +111,31 @@ async function analyzeSentiment() {
     const resultDiv = document.getElementById('result');
     const sentimentSpan = document.getElementById('sentiment');
     const container2 = document.querySelector('.container2');
+
+    // Hide container2 if there's no input
     container2.classList.remove('visible');
     if (userInput.trim() === "") {
         sentimentSpan.textContent = "Please enter some text.";
     } else {
         try {
-            // Send a POST request to your Django API with the user's input
-            const response = await fetch('http://localhost:8000/api/predict/', {
+            // Send a POST request to your FastAPI with the user's input
+            const response = await fetch('http://127.0.0.1:8000/api', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ "data": userInput })
+                body: JSON.stringify({ "input_text": userInput })  // Adjusted key
             });
 
             if (response.ok) {
                 const data = await response.json();
-                // Assuming the API returns an object with a 'sentiment' key
+                // Assuming the API returns sentiment analysis data (positive, negative, neutral)
 
-                sentimentSpan.textContent = data.prediction;
+                sentimentSpan.textContent = `${data.sentiment}`;  // Adjust to match FastAPI's response
                 const chartData = [
-                    { name: 'Negative', y: data.negative },
-                    { name: 'Positive', y: data.positive },
-                    { name: 'Neutral', y: data.neutral }
+                    { name: 'Negative', y: data.negative *100},
+                    { name: 'Positive', y: data.positive*100 },
+                    { name: 'Neutral', y: data.neutral*100 }
                 ];
                 createChart(chartData);
             } else {
@@ -145,9 +147,6 @@ async function analyzeSentiment() {
         }
     }
     resultDiv.style.display = "block";
-
     // Reveal the container2 with the chart
     container2.classList.add('visible');
-
 }
-
